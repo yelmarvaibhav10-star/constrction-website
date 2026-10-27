@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeBuild Construction | Building Excellence</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #f39c12;
+      --primary-dark: #e67e22;
+      --dark: #1a1a2e;
+      --darker: #16213e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      background: rgba(26, 26, 46, 0.95) !important;
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff !important;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin: 0 8px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(26, 26, 46, 0.75), rgba(26, 26, 46, 0.85)),
+                  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .btn-primary-custom {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      padding: 14px 35px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary-custom:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(243, 156, 18, 0.4);
+      color: #fff;
+    }
+
+    .btn-outline-custom {
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 12px 35px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-custom:hover {
+      background: #fff;
+      color: var(--dark);
+    }
+
+    /* ========== SECTION TITLES ========== */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: #666;
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========== ABOUT ========== */
+    .about {
+      padding: 100px 0;
+      background: #f8f9fa;
+    }
+
+    .about-img {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+
+    .feature-box {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .feature-box i {
+      font-size: 1.8rem;
+      color: var(--primary);
+      background: rgba(243, 156, 18, 0.1);
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    /* ========== SERVICES ========== */
+    .services {
+      padding: 100px 0;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s;
+      height: 100%;
+      border: 1px solid #eee;
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      border-color: var(--primary);
+    }
+
+    .service-card .icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .service-card h4 {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* ========== PROJECTS ========== */
+    .projects {
+      padding: 100px 0;
+      background: #f8f9fa;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 300px;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(26,26,46,0.95));
+      padding: 30px 20px 20px;
+      color: #fff;
+      transform: translateY(30px);
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-card:hover .project-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ========== STATS ========== */
+    .stats {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--dark), var(--darker));
+      color: #fff;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-item p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonials {
+      padding: 100px 0;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      height: 100%;
+      border-left: 5px solid var(--primary);
+    }
+
+    .testimonial-card .stars {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .client-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .client-info img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact {
+      padding: 100px 0;
+      background: #f8f9fa;
+    }
+
+    .contact-info-box {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 15px;
+      padding: 40px;
+      height: 100%;
+    }
+
+    .contact-info-box i {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-right: 15px;
+    }
+
+    .contact-form {
+      background: #fff;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .form-control, .form-select {
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--darker);
+      color: #fff;
+      padding: 70px 0 20px;
+    }
+
+    footer h5 {
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    footer h5::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: 0.3s;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 5px 20px rgba(243, 156, 18, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 999;
+      border: none;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <i class="bi bi-building"></i> Prime<span>Build</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 hero-content">
+          <h1>Building Dreams into <span>Reality</span></h1>
+          <p>We are a leading construction company delivering high-quality residential, commercial, and industrial projects with excellence, safety, and innovation.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#contact" class="btn btn-primary-custom">Get Free Quote</a>
+            <a href="#projects" class="btn btn-outline-custom">View Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>With over 15 years of experience, we turn your vision into solid structures.</p>
+      </div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construction Site">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="fw-bold mb-4">We Build With Passion & Precision</h3>
+          <p class="mb-4">PrimeBuild Construction is a trusted name in the industry. From modern homes to large commercial complexes, we deliver projects on time and within budget while maintaining the highest quality standards.</p>
+          
+          <div class="feature-box">
+            <i class="bi bi-award"></i>
+            <div>
+              <h5 class="fw-bold">Quality Assurance</h5>
+              <p class="mb-0 text-muted">Every project goes through strict quality checks.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <i class="bi bi-people"></i>
+            <div>
+              <h5 class="fw-bold">Expert Team</h5>
+              <p class="mb-0 text-muted">Skilled engineers, architects & craftsmen.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <i class="bi bi-clock-history"></i>
+            <div>
+              <h5 class="fw-bold">On-Time Delivery</h5>
+              <p class="mb-0 text-muted">We respect deadlines as much as quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Comprehensive construction solutions tailored to your needs</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-house-door"></i></div>
+            <h4>Residential Construction</h4>
+            <p>Custom homes, villas, apartments and residential complexes built with modern design and durability.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-building"></i></div>
+            <h4>Commercial Construction</h4>
+            <p>Office buildings, shopping malls, hotels and commercial spaces designed for functionality and aesthetics.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-tools"></i></div>
+            <h4>Renovation & Remodeling</h4>
+            <p>Transform your existing space with expert renovation, interior upgrades and structural improvements.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-geo-alt"></i></div>
+            <h4>Infrastructure</h4>
+            <p>Roads, bridges, drainage systems and large-scale infrastructure projects handled professionally.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-palette"></i></div>
+            <h4>Interior Design</h4>
+            <p>Complete interior solutions including planning, material selection and turnkey execution.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-clipboard-check"></i></div>
+            <h4>Project Management</h4>
+            <p>End-to-end project supervision ensuring quality, safety, cost control and timely completion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Projects</h2>
+        <p>Some of our proudest achievements across residential and commercial sectors</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
+            <div class="project-overlay">
+              <h5>Luxury Villa Complex</h5>
+              <p class="mb-0">Residential • 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2">
+            <div class="project-overlay">
+              <h5>Skyline Business Tower</h5>
+              <p class="mb-0">Commercial • 2023</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3">
+            <div class="project-overlay">
+              <h5>Modern Apartment Block</h5>
+              <p class="mb-0">Residential • 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 4">
+            <div class="project-overlay">
+              <h5>Industrial Warehouse</h5>
+              <p class="mb-0">Industrial • 2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 5">
+            <div class="project-overlay">
+              <h5>Premium Office Space</h5>
+              <p class="mb-0">Commercial • 2023</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600047509807-ba8f04d8a6d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 6">
+            <div class="project-overlay">
+              <h5>Heritage Renovation</h5>
+              <p class="mb-0">Renovation • 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="stats">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="250">0</h3>
+            <p>Projects Completed</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="15">0</h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="180">0</h3>
+            <p>Happy Clients</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="45">0</h3>
+            <p>Expert Team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>What Clients Say</h2>
+        <p>Real feedback from people who trusted us with their projects</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p>"PrimeBuild delivered our dream home on time and within budget. The quality of work and professionalism was outstanding. Highly recommended!"</p>
+            <div class="client-info">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+              <div>
+                <h6 class="mb-0 fw-bold">Rahul Sharma</h6>
+                <small class="text-muted">Homeowner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p>"They handled our commercial office project with great expertise. Communication was clear throughout and the final result exceeded expectations."</p>
+            <div class="client-info">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+              <div>
+                <h6 class="mb-0 fw-bold">Priya Mehta</h6>
+                <small class="text-muted">Business Owner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+            <p>"Excellent renovation work on our old property. The team was skilled, punctual and very respectful of our requirements. Will hire again!"</p>
+            <div class="client-info">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Client">
+              <div>
+                <h6 class="mb-0 fw-bold">Amit Patel</h6>
+                <small class="text-muted">Property Investor</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Ready to start your project? Get in touch with us today</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="contact-info-box">
+            <h3 class="fw-bold mb-4">Get In Touch</h3>
+            <p class="mb-4">Have a project in mind? We would love to hear about it. Fill out the form or reach us directly.</p>
+            
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div>
+                <h6 class="fw-bold">Address</h6>
+                <p class="mb-0 opacity-75">123 Construction Avenue,<br>Business Park, Mumbai 400001</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-telephone-fill"></i>
+              <div>
+                <h6 class="fw-bold">Phone</h6>
+                <p class="mb-0 opacity-75">+91 98765 43210<br>+91 22 1234 5678</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-4">
+              <i class="bi bi-envelope-fill"></i>
+              <div>
+                <h6 class="fw-bold">Email</h6>
+                <p class="mb-0 opacity-75">info@primebuild.com<br>projects@primebuild.com</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start">
+              <i class="bi bi-clock-fill"></i>
+              <div>
+                <h6 class="fw-bold">Working Hours</h6>
+                <p class="mb-0 opacity-75">Mon - Sat: 9:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Full Name</label>
+                  <input type="text" class="form-control" id="name" required placeholder="John Doe">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Email Address</label>
+                  <input type="email" class="form-control" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" required placeholder="+91 98765 43210">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Service Required</label>
+                  <select class="form-select" id="service" required>
+                    <option value="" selected disabled>Select Service</option>
+                    <option>Residential Construction</option>
+                    <option>Commercial Construction</option>
+                    <option>Renovation & Remodeling</option>
+                    <option>Infrastructure</option>
+                    <option>Interior Design</option>
+                    <option>Project Management</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Project Details</label>
+                  <textarea class="form-control" id="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary-custom w-100">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5><i class="bi bi-building"></i> PrimeBuild</h5>
+          <p class="opacity-75 mt-3">Building excellence since 2009. We deliver quality construction solutions that stand the test of time.</p>
+          <div class="social-icons mt-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h5>Services</h5>
+          <a href="#services">Residential</a>
+          <a href="#services">Commercial</a>
+          <a href="#services">Renovation</a>
+          <a href="#services">Infrastructure</a>
+          <a href="#services">Interior Design</a>
+        </div>
+        <div class="col-lg-3">
+          <h5>Newsletter</h5>
+          <p class="opacity-75">Subscribe for latest updates and offers.</p>
+          <div class="input-group mt-3">
+            <input type="email" class="form-control" placeholder="Your email">
+            <button class="btn btn-primary-custom" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p class="mb-0">&copy; 2025 PrimeBuild Construction. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      // Back to top button
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+        // Close mobile menu
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse.classList.contains('show')) {
+          bootstrap.Collapse.getInstance(navbarCollapse).hide();
+        }
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(animateCounters, 20);
+        } else {
+          counter.innerText = target + '+';
+        }
+      });
+    };
+
+    // Trigger counter when stats section is in view
+    const statsSection = document.querySelector('.stats');
+    let counted = false;
+
+    window.addEventListener('scroll', () => {
+      const sectionTop = statsSection.offsetTop;
+      const sectionHeight = statsSection.offsetHeight;
+      if (scrollY > sectionTop - window.innerHeight + 200 && !counted) {
+        counted = true;
+        animateCounters();
+      }
+    });
+
+    // Back to top
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Contact Form
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      
+      // Simple success message
+      alert(`Thank you ${name}! Your message has been sent successfully. We will contact you soon at ${email}.`);
+      this.reset();
+    });
+  </script>
+</body>
+</html>
